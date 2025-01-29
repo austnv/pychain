@@ -56,13 +56,13 @@ class Blockchain:
     def __init__(self, difficulty=1, difficulty_correction_interval=10, target_time=30, initial_reward=100, halving_interval=10, wallets: Dict[str, Wallet]={}):
         self.chain: List[Block] = []
         self.time: List[float] = []
-        self.difficulty = difficulty # сложность майнинга (количество ведущих нулей в хэше)
-        self.difficulty_correction_interval = difficulty_correction_interval # через какое кол-во блоков корректировать сложность майнинга в соответствии с целевым временем
-        self.target_time = target_time # секунд цикла майнинга
-        self.initial_reward = initial_reward  # вознаграждение за майнинг блока
-        self.reward_amount = self.initial_reward  # вознаграждение за майнинг блока
-        self.halving_interval = halving_interval # как часто уменьшать награду за майнинг блока
-        self.wallets = wallets  # словарь адресов кошельков и их балансов
+        self.difficulty = difficulty # mining difficulty (number of leading zeros in the hash)
+        self.difficulty_correction_interval = difficulty_correction_interval # after what number of blocks to adjust the complexity of mining in accordance with the target time
+        self.target_time = target_time # seconds of the mining cycle
+        self.initial_reward = initial_reward  # block mining initial reward
+        self.reward_amount = self.initial_reward  # block mining reward
+        self.halving_interval = halving_interval # how often to reduce the block mining reward
+        self.wallets = wallets  # dictionary of wallet addresses and their balances
         self.create_genesis_block()
 
     def create_genesis_block(self):
